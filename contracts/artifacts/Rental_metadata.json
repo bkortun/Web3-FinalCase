@@ -4,7 +4,347 @@
 	},
 	"language": "Solidity",
 	"output": {
-		"abi": [],
+		"abi": [
+			{
+				"anonymous": false,
+				"inputs": [
+					{
+						"indexed": true,
+						"internalType": "address",
+						"name": "_user",
+						"type": "address"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "id",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "fullName",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Hirer",
+								"name": "hirer",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Property",
+								"name": "property",
+								"type": "tuple"
+							},
+							{
+								"internalType": "string",
+								"name": "subject",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdDate",
+								"type": "uint256"
+							}
+						],
+						"indexed": false,
+						"internalType": "struct Rental.Report",
+						"name": "report",
+						"type": "tuple"
+					}
+				],
+				"name": "SendReport",
+				"type": "event"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "agreementIds",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "",
+						"type": "uint256"
+					}
+				],
+				"name": "agreements",
+				"outputs": [
+					{
+						"internalType": "uint256",
+						"name": "id",
+						"type": "uint256"
+					},
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "id",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "fullName",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Hirer",
+								"name": "hirer",
+								"type": "tuple"
+							},
+							{
+								"internalType": "address",
+								"name": "tenancyAddress",
+								"type": "address"
+							},
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "id",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "fullName",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Renter",
+								"name": "renter",
+								"type": "tuple"
+							}
+						],
+						"internalType": "struct Rental.Tenancy",
+						"name": "tenancy",
+						"type": "tuple"
+					},
+					{
+						"internalType": "uint256",
+						"name": "startDate",
+						"type": "uint256"
+					},
+					{
+						"internalType": "uint256",
+						"name": "endDate",
+						"type": "uint256"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "string",
+						"name": "propertyName",
+						"type": "string"
+					}
+				],
+				"name": "enterProperty",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "uint256",
+						"name": "agreementId",
+						"type": "uint256"
+					}
+				],
+				"name": "finishRent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"internalType": "address",
+						"name": "",
+						"type": "address"
+					}
+				],
+				"name": "propertiesOfUsers",
+				"outputs": [
+					{
+						"internalType": "string",
+						"name": "name",
+						"type": "string"
+					}
+				],
+				"stateMutability": "view",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"internalType": "uint256",
+								"name": "id",
+								"type": "uint256"
+							},
+							{
+								"components": [
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "id",
+												"type": "address"
+											},
+											{
+												"internalType": "string",
+												"name": "fullName",
+												"type": "string"
+											}
+										],
+										"internalType": "struct Rental.Hirer",
+										"name": "hirer",
+										"type": "tuple"
+									},
+									{
+										"internalType": "address",
+										"name": "tenancyAddress",
+										"type": "address"
+									},
+									{
+										"components": [
+											{
+												"internalType": "address",
+												"name": "id",
+												"type": "address"
+											},
+											{
+												"internalType": "string",
+												"name": "fullName",
+												"type": "string"
+											}
+										],
+										"internalType": "struct Rental.Renter",
+										"name": "renter",
+										"type": "tuple"
+									}
+								],
+								"internalType": "struct Rental.Tenancy",
+								"name": "tenancy",
+								"type": "tuple"
+							},
+							{
+								"internalType": "uint256",
+								"name": "startDate",
+								"type": "uint256"
+							},
+							{
+								"internalType": "uint256",
+								"name": "endDate",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Rental.Agreement",
+						"name": "agreement",
+						"type": "tuple"
+					}
+				],
+				"name": "rent",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			},
+			{
+				"inputs": [
+					{
+						"components": [
+							{
+								"components": [
+									{
+										"internalType": "address",
+										"name": "id",
+										"type": "address"
+									},
+									{
+										"internalType": "string",
+										"name": "fullName",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Hirer",
+								"name": "hirer",
+								"type": "tuple"
+							},
+							{
+								"components": [
+									{
+										"internalType": "string",
+										"name": "name",
+										"type": "string"
+									}
+								],
+								"internalType": "struct Rental.Property",
+								"name": "property",
+								"type": "tuple"
+							},
+							{
+								"internalType": "string",
+								"name": "subject",
+								"type": "string"
+							},
+							{
+								"internalType": "string",
+								"name": "message",
+								"type": "string"
+							},
+							{
+								"internalType": "uint256",
+								"name": "createdDate",
+								"type": "uint256"
+							}
+						],
+						"internalType": "struct Rental.Report",
+						"name": "report",
+						"type": "tuple"
+					}
+				],
+				"name": "sendReportToRenter",
+				"outputs": [],
+				"stateMutability": "nonpayable",
+				"type": "function"
+			}
+		],
 		"devdoc": {
 			"kind": "dev",
 			"methods": {},
@@ -33,11 +373,11 @@
 	},
 	"sources": {
 		"contracts/RentalContract.sol": {
-			"keccak256": "0x4121eb09d14640ed6521eacfdf15bc0446d8a4b9371a476ba45e6283afe04f7f",
+			"keccak256": "0x15166d9ee9f8f48d7887fa56247c584ae4a82ea7f11a8e073bc62a327f3326dc",
 			"license": "MIT",
 			"urls": [
-				"bzz-raw://97268c9a4b573b11a119dd892dece88580ef81c4a4ab267a952465c3532295ff",
-				"dweb:/ipfs/Qmd6TB9bEj1JGAu47o8bNRPUG7jM92i3ms16hxmxGEfNWt"
+				"bzz-raw://b89b05025b55dbdbd2420d39b22be5a04edfd6d85f7ccf59894a2a38eeec32a1",
+				"dweb:/ipfs/QmNrWwaWhY6K79U3cCpkGcov56DVJJtVhoXossHCdrJ5ZC"
 			]
 		}
 	},
