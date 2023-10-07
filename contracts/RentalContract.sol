@@ -13,6 +13,9 @@ contract Rental{
     mapping (uint=>Agreement) public agreements ;
     uint[] public agreementIds;
 
+    Hirer public hirer;
+    Renter public renter;
+
     Report[] reports ;
 
     enum PropertyType{
@@ -57,14 +60,28 @@ contract Rental{
     }
 
     modifier isHirer(){
+        require(hirer.id!=msg.sender,"You must be hirerer for doing this action");
         _;
     }
 
     modifier isRenter(){
+        require(renter.id!=msg.sender,"You must be renter for doing this action");
         _;
     }
    
-    
+    function setHirer(string memory fullName) public {
+        hirer =Hirer( {
+            id:msg.sender,
+            fullName:fullName
+        });        
+    }
+
+     function setRenter(string memory fullName) public {
+        renter =Renter( {
+            id:msg.sender,
+            fullName:fullName
+        });      
+    }
 
     function enterProperty(string memory propertyName) isRenter public{
         Property memory _property;
@@ -73,6 +90,8 @@ contract Rental{
     }
 
     function rent(Agreement memory agreement) isRenter  public{
+        require(agreement.startDate>=block.timestamp,"Start date can't assign to a past date");
+        require(agreement.endDate>=block.timestamp,"End date can't assign to a past date");
         agreements[agreement.id] = agreement;
         agreementIds.push(agreement.id);
     }
