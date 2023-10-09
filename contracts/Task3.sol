@@ -21,12 +21,12 @@ contract ParibuHub{
     Account[] public admins;
     uint private index;
 
-    function addAdmin(Account memory admin) public {
-       admins.push(admin);
-    }
-
     function getAllAdmins() public view returns(Account[] memory) {
-        return admins;
+        Account[] memory _admins = new Account[](index);
+        for (uint i = 0; i < index; i++) {
+            _admins[i] = admins[i];
+        }
+        return _admins;
     }
 }
 
